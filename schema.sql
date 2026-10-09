@@ -39,3 +39,12 @@ CREATE TABLE quests (
     description TEXT NOT NULL,
     game_id INT REFERENCES games(id) ON DELETE CASCADE
 );
+
+CREATE TABLE matches (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    score INT NOT NULL DEFAULT 0,
+    duration_seconds INT NOT NULL,
+    played_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    character_id INT REFERENCES characters(id) ON DELETE CASCADE,
+    game_id INT REFERENCES games(id) ON DELETE CASCADE
+);
