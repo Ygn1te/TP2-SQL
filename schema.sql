@@ -16,7 +16,7 @@ CREATE TABLE characters (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
     description TEXT NOT NULL
-    user_id INT REFERENCES users(id) ON DELETE CASCADE, -- CASCADE permet de supprimer les lignes enfants lorsque une ligne parent est supprimé
+    user_id INT REFERENCES users(id) ON DELETE CASCADE, -- CASCADE permet de supprimer les lignes enfants lorsque une ligne parent est supprimÃ©
     game_id INT REFERENCES games(id) ON DELETE CASCADE
 );
 
@@ -37,7 +37,8 @@ CREATE TABLE quests (
     id SERIAL PRIMARY KEY,
     title VARCHAR(255) NOT NULL,
     description TEXT NOT NULL,
-    game_id INT REFERENCES games(id) ON DELETE CASCADE
+    game_id INT REFERENCES games(id) ON DELETE CASCADE,
+    parent_quest_id INT REFERENCES quests(id)
 );
 
 CREATE TABLE matches (
